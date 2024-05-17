@@ -16,6 +16,10 @@ app.get('/education', (req, res) => {
     res.sendFile(__dirname + '/public/education.html');
 });
 
+app.get('/certifications', (req, res) => {
+    res.sendFile(__dirname + '/public/certifications.html');
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
