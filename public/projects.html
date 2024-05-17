@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+        <h1>Project Page</h1>
+    <div>
+        <input type="text" id="filter" placeholder="Filter by technology...">
+        <ul id="projects-list">
+        </ul>
+    </div>
+    <script>
+        // Example JavaScript for filtering projects
+        const projects = [
+            { name: 'Project 1', technology: 'Java' },
+            { name: 'Project 2', technology: 'C#' },
+            { name: 'Project 3', technology: 'Node.js' }
+        ];
+        
+        document.getElementById('filter').addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            const filteredProjects = projects.filter(p => p.technology.toLowerCase().includes(filter));
+            const projectsList = document.getElementById('projects-list');
+            projectsList.innerHTML = '';
+            filteredProjects.forEach(project => {
+                const li = document.createElement('li');
+                li.textContent = project.name + ' (' + project.technology + ')';
+                projectsList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
+
